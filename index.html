@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AION</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ESCOLHA INICIAL DO TEMA -->
+    <section id="tela-tema" class="tela-tema" aria-labelledby="titulo-tema">
+        <div class="tema-cartao">
+            <div class="tema-marca">AION<span>.</span></div>
+            <p class="tema-etiqueta">SERVIÇOS DA SUA REGIÃO</p>
+            <h2 id="titulo-tema">Do seu jeito.</h2>
+            <p class="tema-descricao">Escolha a aparência para começar a encontrar profissionais perto de você.</p>
+            <div class="opcoes-tema">
+                <button type="button" class="opcao-tema tema-claro" data-escolher-tema="claro">
+                    <span class="amostra-clara" aria-hidden="true">☀</span>
+                    <span><strong>Modo claro</strong><small>Leve e luminoso</small></span>
+                    <span class="seta-tema" aria-hidden="true">→</span>
+                </button>
+                <button type="button" class="opcao-tema tema-escuro" data-escolher-tema="escuro">
+                    <span class="amostra-escura" aria-hidden="true">☾</span>
+                    <span><strong>Modo escuro</strong><small>Confortável à noite</small></span>
+                    <span class="seta-tema" aria-hidden="true">→</span>
+                </button>
+            </div>
+            <p class="tema-rodape">© 2026 AION. Todos os direitos reservados.</p>
+        </div>
+    </section>
+
+
+    <header>
+
+        <div class="logo">
+            <h1>AION</h1>
+            <span>Serviços da sua região</span>
+        </div>
+
+        <nav>
+            <a href="#">Início</a>
+
+            <a href="#categorias">
+                Categorias
+            </a>
+
+            <button id="abrir-cadastro" class="botao-cadastro">
+                Oferecer serviço
+            </button>
+
+            <a href="#" id="btn-entrar">
+                Entrar
+            </a>
+
+            <button id="alternar-tema" class="botao-tema" type="button" aria-label="Ativar modo escuro" title="Alternar tema">☾ Tema</button>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- BUSCA -->
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <span class="hero-tag">
+                    SERVIÇOS LOCAIS
+                </span>
+
+                <h2>
+                    Encontre o profissional que você precisa.
+                </h2>
+
+                <p>
+                    Encontre profissionais e serviços próximos de você.
+                </p>
+
+            </div>
+
+
+            <form id="formulario-busca">
+
+                <div class="campo busca-servico">
+
+                    <label for="servico">
+                        O que você procura?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="servico"
+                        name="servico"
+                        placeholder="Ex: costureira, eletricista..."
+                        autocomplete="off"
+                    >
+
+                    <div
+                        id="sugestoes"
+                        class="sugestoes"
+                    ></div>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="cidade">
+                        Onde?
+                    </label>
+
+                    <select id="cidade" name="cidade">
+
+                        <option value="" selected>Todas as cidades</option>
+
+                        <option value="sao-martinho">
+                            São Martinho
+                        </option>
+
+                        <option value="sao-bonifacio">
+                            São Bonifácio
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button type="submit">
+                    Buscar profissionais
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+
+        <section class="resultados">
+
+            <div class="resultados-header">
+
+                <h2 id="titulo-resultados">
+                    Profissionais encontrados
+                </h2>
+
+                <span id="quantidade-resultados">
+                    0 profissionais
+                </span>
+
+            </div>
+
+            <div class="ferramentas-resultados" aria-label="Opções de resultados">
+                <button id="filtro-favoritos" class="botao-ferramenta" type="button" aria-pressed="false">♡ Favoritos</button>
+                <label class="ordenacao-resultados" for="ordenar-resultados">Ordenar por
+                    <select id="ordenar-resultados">
+                        <option value="relevancia">Mais relevantes</option>
+                        <option value="nome">Nome (A–Z)</option>
+                        <option value="servico">Serviço (A–Z)</option>
+                        <option value="cidade">Cidade</option>
+                    </select>
+                </label>
+                <button id="limpar-filtros" class="botao-ferramenta" type="button">Limpar filtros</button>
+            </div>
+
+            <p class="aviso-demo">Prévia do AION: os profissionais exibidos são exemplos. Cadastros feitos aqui ficam salvos somente neste navegador até a integração com o servidor.</p>
+
+            <div
+                id="lista-resultados"
+                class="lista-resultados"
+            ></div>
+
+        </section>
+
+
+        <!-- CATEGORIAS -->
+
+        <section
+            id="categorias"
+            class="categorias"
+        >
+
+            <h2>
+                Encontre por categoria
+            </h2>
+
+
+            <div class="categorias-grid">
+
+
+                <button
+                    class="categoria"
+                    data-categoria="Construção"
+                >
+
+                    <h3>
+                        Construção
+                    </h3>
+
+                    <p>
+                        Pedreiros, eletricistas e mais.
+                    </p>
+
+                </button>
+
+
+                <button
+                    class="categoria"
+                    data-categoria="Casa"
+                >
+
+                    <h3>
+                        Casa
+                    </h3>
+
+                    <p>
+                        Limpeza, manutenção e serviços.
+                    </p>
+
+                </button>
+
+
+                <button
+                    class="categoria"
+                    data-categoria="Beleza"
+                >
+
+                    <h3>
+                        Beleza
+                    </h3>
+
+                    <p>
+                        Cabeleireiros, manicures e mais.
+                    </p>
+
+                </button>
+
+
+                <button
+                    class="categoria"
+                    data-categoria="Alimentação"
+                >
+
+                    <h3>
+                        Alimentação
+                    </h3>
+
+                    <p>
+                        Comida, cozinheiros e serviços.
+                    </p>
+
+                </button>
+
+
+                <button
+                    class="categoria"
+                    data-categoria="Transporte"
+                >
+
+                    <h3>
+                        Transporte
+                    </h3>
+
+                    <p>
+                        Motoristas e transportadores.
+                    </p>
+
+                </button>
+
+
+                <button
+                    class="categoria"
+                    data-categoria="Tecnologia"
+                >
+
+                    <h3>
+                        Tecnologia
+                    </h3>
+
+                    <p>
+                        Assistência e serviços de tecnologia.
+                    </p>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Encontre profissionais da sua região.
+            <h4>© 2026 AION. Todos os direitos reservados.</h4>
+        </p>
+
+    </footer>
+
+
+    <!-- MODAL DO PROFISSIONAL -->
+
+    <div
+        id="modal"
+        class="modal"
+    >
+
+        <div class="modal-conteudo">
+
+            <button
+                id="fechar-modal"
+                class="fechar-modal"
+            >
+                ×
+            </button>
+
+            <div id="perfil-profissional"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL DE CADASTRO -->
+
+    <div
+        id="modal-cadastro"
+        class="modal"
+    >
+
+        <div class="modal-conteudo cadastro-conteudo">
+
+            <button
+                id="fechar-cadastro"
+                class="fechar-modal"
+            >
+                ×
+            </button>
+
+
+            <div class="cadastro-header">
+
+                <span class="hero-tag">
+                    AION
+                </span>
+
+                <h2>
+                    Ofereça seu serviço
+                </h2>
+
+                <p>
+                    Cadastre seu serviço para que pessoas da sua região possam encontrar você.
+                </p>
+
+            </div>
+
+
+            <form id="formulario-cadastro">
+
+                <div class="campo">
+
+                    <label for="nome">
+                        Seu nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Ex: João da Silva"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- SERVIÇO COM AUTOCOMPLETE -->
+
+                <div class="campo campo-autocomplete">
+
+                    <label for="novo-servico">
+                        Qual serviço você oferece?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="novo-servico"
+                        placeholder="Ex: Eletricista"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <div
+                        id="sugestoes-cadastro"
+                        class="sugestoes"
+                    ></div>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="nova-categoria">
+                        Categoria
+                    </label>
+
+                    <select
+                        id="nova-categoria"
+                        required
+                    >
+
+                        <option value="Construção">
+                            Construção
+                        </option>
+
+                        <option value="Casa">
+                            Casa
+                        </option>
+
+                        <option value="Beleza">
+                            Beleza
+                        </option>
+
+                        <option value="Alimentação">
+                            Alimentação
+                        </option>
+
+                        <option value="Transporte">
+                            Transporte
+                        </option>
+
+                        <option value="Tecnologia">
+                            Tecnologia
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="nova-cidade">
+                        Onde você trabalha?
+                    </label>
+
+                    <select
+                        id="nova-cidade"
+                        required
+                    >
+
+                        <option value="">Todas as cidades</option>
+
+                        <option value="sao-martinho">
+                            São Martinho
+                        </option>
+
+                        <option value="sao-bonifacio">
+                            São Bonifácio
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="descricao">
+                        Sobre seu serviço
+                    </label>
+
+                    <textarea
+                        id="descricao"
+                        placeholder="Ex: Faço instalações elétricas residenciais..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="telefone">
+                        Telefone para contato
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        placeholder="Ex: (48) 99999-9999"
+                        minlength="11"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="botao-enviar"
+                >
+                    Cadastrar serviço
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    
+    <!-- MODAL DE LOGIN -->
+    <div id="modal-login" class="modal">
+        <div class="modal-conteudo cadastro-conteudo">
+
+            <button
+                id="fechar-login"
+                class="fechar-modal"
+                type="button"
+                aria-label="Fechar login"
+            >
+                ×
+            </button>
+
+        <div class="cadastro-header">
+            <span class="hero-tag">AION</span>
+            <h2>Bem-vindo de volta.</h2>
+            <p>Entre na sua conta para continuar.</p>
+        </div>
+
+        <form id="formulario-login">
+
+            <div class="campo">
+                <label for="login-usuario">Nome de usuário</label>
+                <input
+                    type="text"
+                    id="login-usuario"
+                    name="usuario"
+                    placeholder="Seu nome de usuário"
+                    autocomplete="username"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="login-senha">Senha</label>
+                <input
+                    type="password"
+                    id="login-senha"
+                    name="senha"
+                    placeholder="Sua senha (Minimo 8 Caracteres)"
+                    minlength="8"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="botao-enviar">
+                Entrar
+            </button>
+
+            <p id="mensagem-login" role="status"></p>
+
+            </form>
+        </div>
+    </div>
+
+    <button
+    id="voltar-topo"
+    aria-label="Voltar ao topo"
+    title="Voltar ao topo"
+>
+    ↑
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
